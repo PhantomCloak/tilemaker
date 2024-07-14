@@ -867,8 +867,6 @@ function GetPOIRank()
 end
 
 function SetBuildingHeightAttributes()
-	local mid = tonumber(Find("id"), 55)
-	local wid = tonumber(Find("way_id"), 55)
 	local height = tonumber(Find("height"), 10)
 	local minHeight = tonumber(Find("min_height"), 10)
 	local levels = tonumber(Find("building:levels"), 10)
@@ -890,8 +888,10 @@ function SetBuildingHeightAttributes()
 
 	AttributeNumeric("render_height", renderHeight)
 	AttributeNumeric("render_min_height", renderMinHeight)
-	AttributeNumeric("mid", mid)
-	AttributeNumeric("wid", wid)
+
+
+	local osmId = Id()
+	AttributeNumeric("osm_id", tonumber(osmId))
 end
 
 -- Implement z_order as calculated by Imposm
